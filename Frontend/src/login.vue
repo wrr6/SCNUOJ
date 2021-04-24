@@ -3,7 +3,7 @@
     <el-form :model="form" @keyup.native.enter="loginClick">
       <el-row :gutter="10">
         <el-col :span="3">
-          <div style="text-align:center;margin:5px;">User</div>
+          <div style="text-align:center;margin:5px;">Username</div>
         </el-col>
         <el-col :span="12">
           <el-input v-model="form.username" autocomplete="off" :autofocus="true"></el-input>

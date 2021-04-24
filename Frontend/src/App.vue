@@ -6,37 +6,34 @@
              v-bind:router="true"
              id="nav">
       <el-menu-item index="/"
-                    id="title">{{school}}</el-menu-item>
+                    id="title">ICPC SCNU</el-menu-item>
       <el-menu-item index="/">
-        <i class="el-icon-star-off"></i>Home
+        <i class="el-icon-star-off"></i>首页
       </el-menu-item>
       <el-menu-item index="/problem">
-        <i class="el-icon-menu"></i>Problem
+        <i class="el-icon-menu"></i>问题
       </el-menu-item>
       <el-menu-item index="/statue">
-        <i class="el-icon-tickets"></i>Status
+        <i class="el-icon-tickets"></i>状态
       </el-menu-item>
       <el-menu-item index="/contest">
-        <i class="el-icon-bell"></i>Contest
+        <i class="el-icon-bell"></i>竞赛
       </el-menu-item>
       <el-menu-item index="/rank">
-        <i class="el-icon-star-on"></i>Rank
+        <i class="el-icon-star-on"></i>排名
       </el-menu-item>
       <el-menu-item index="/wiki">
-        <i class="el-icon-star-off"></i>Wiki
-      </el-menu-item>
-      <el-menu-item index="/todolist">
-        <i class="el-icon-s-promotion"></i>TodoList
+        <i class="el-icon-star-off"></i>百科
       </el-menu-item>
 
       <el-button round
                  id="button"
                  @click="registeropen"
-                 v-show="!loginshow">Register</el-button>
+                 v-show="!loginshow">注册</el-button>
       <el-button round
                  id="button"
                  @click="loginopen"
-                 v-show="!loginshow">Login</el-button>
+                 v-show="!loginshow">登陆</el-button>
 
       <el-dropdown id="user"
                    v-show="loginshow"
@@ -78,27 +75,10 @@
                 mode="out-in">
       <router-view id="route"></router-view>
     </transition>
-
+    
     <div class="footer">
-      <p>
-        Powered by
-        <a href="https://github.com/Linzecong/LPOJ"
-           target="_blank"
-           style="text-decoration: none;color:#409EFF;">Linzecong</a>
-        <span>
-          &nbsp; Version: 3.4&nbsp;&nbsp; Docs:&nbsp;&nbsp;
-          <a href="https://docs.lpoj.cn"
-             target="_blank"
-             style="text-decoration: none;color:#409EFF;">LPOJ Docs</a>&nbsp;&nbsp;欢迎加入LPOJ讨论群: 875136693&nbsp;&nbsp;
-          <a target="_blank"
-             href="//shang.qq.com/wpa/qunwpa?idkey=dcc9d5c63a744d5c09eda5dd7f4b208451e66b42ba633ea23ec6fa4d49135825">
-            <img border="0"
-                 src="//pub.idqqimg.com/wpa/images/group.png"
-                 alt="LPOJ讨论群"
-                 title="LPOJ讨论群">
-          </a>
-        </span>
-      </p>
+      <p>地址：广东省广州市天河区中山大道西55号<span class="pipe">|</span>邮政编码：510631</p>
+      <p>华南师范大学 版权所有<span class="pipe">|</span>Copyright © 2021 South China Normal University. All Rights Reserved</p>
     </div>
   </div>
 </template>
@@ -113,7 +93,7 @@ export default {
   data () {
     return {
       activeIndex: "1",
-      school: "LPOJ",
+      school: "SCNU",
       loginshow: sessionStorage.username,
       username: sessionStorage.username,
       name: sessionStorage.name,
@@ -129,13 +109,13 @@ export default {
         .get("/settingboard/")
         .then(res => {
           if (res.data.length > 0) this.school = res.data[0].ojname;
-          else this.school = "LPOJ";
+          else this.school = "SCNU";
           this.$store.state.sb = res.data
         });
     }
     else {
       if (sb.length > 0) this.school = sb[0].ojname;
-      else this.school = "LPOJ";
+      else this.school = "SCNU";
     }
 
 

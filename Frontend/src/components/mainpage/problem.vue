@@ -4,7 +4,7 @@
       <el-card shadow="always">
         <el-switch style="float: right;"
                    v-model="islpoj"
-                   active-text="LPOJ"
+                   active-text="SCNU"
                    inactive-text="All"
                    @change="statuechange"></el-switch>
         <el-pagination @size-change="handleSizeChange"
@@ -126,13 +126,13 @@ export default {
       currenttag: "",
       islpoj: true,
       searchtext: "",
-      searchoj: "LPOJ"
+      searchoj: "SCNUOJ"
     };
   },
   methods: {
     statuechange (val) {
       if (val == true) {
-        this.searchoj = "LPOJ"
+        this.searchoj = "SCNUOJ"
       } else {
         this.searchoj = ""
       }
@@ -367,7 +367,7 @@ export default {
   },
   mounted () {
     this.$axios
-      .get("/problemdata/?limit=15&offset=0&auth=1&oj=LPOJ")
+      .get("/problemdata/?limit=15&offset=0&auth=1&oj=SCNUOJ")
       .then(response => {
 
         console.log(response.data);
